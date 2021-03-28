@@ -1,0 +1,25 @@
+type Producer {
+    id: ID!
+    name: String
+    location: String
+    teas: [Tea]
+}
+
+type Tea {
+    id: ID!
+    name: String
+    type: String
+    price: Int
+    producer: Producer
+}
+
+type Mutation {
+    addProducer(name: String!, location: String): Producer!
+    addTea(name: String!, type: String, price: Int, ProducerId: Int!): Tea!
+}
+
+type Query {
+    producerById(id: Int): Producer
+    teaById(id: Int): Tea
+#    findAllTeas: [Tea]!
+}
